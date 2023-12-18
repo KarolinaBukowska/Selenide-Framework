@@ -1,0 +1,8 @@
+{
+  "registrationData": {
+    "firstName": "testName",
+    "lastName": "testSurname",
+    "password": "Start123!",
+    "confirmPassword": "Start123!"
+  }
+}
