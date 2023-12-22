@@ -2,48 +2,33 @@ package tests;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
+import config.Config;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import static com.codeborne.selenide.Condition.*;
 import static org.testng.Assert.*;
 import pages.Pages;
-import data.Data;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import java.io.IOException;
-import java.io.File;
-import java.nio.file.Paths;
 
 
-public class UserRegistration {
+public class UserRegistration extends BaseTest {
 
-    Data data;
 
     @BeforeClass
     public void setUp() {
-        ObjectMapper objectMapper = new ObjectMapper();
-        try {
-            String filePath = getPathToResource("testData/UserRegistration.json");
-            data = objectMapper.readValue(new File(filePath), Data.class);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        setUpTestData("testData/UserRegistration.json");
     }
 
-    private String getPathToResource(String relativePath) {
-
-        return Paths.get("src","main","resources", relativePath).toString();
-    }
 
     @Test
     public void openUserRegistration() {
 
 //      Preconditions:
 //      Home page is present
-        Selenide.open("https://ecommerce.tealiumdemo.com/");
+        Selenide.open(Config.BASE_URL);
         String url = WebDriverRunner.url();
-        assertEquals(url, "https://ecommerce.tealiumdemo.com/");
+        assertEquals(url, Config.BASE_URL);
+
+
 
 //      Step 1 Click on the "My account" button
 //      A page titled "Login or Create an Account" is present
@@ -67,11 +52,12 @@ public class UserRegistration {
         Pages.createAccountPage.confirmPassword.shouldBe(visible).shouldBe(empty);
 //      Step 3 Fill in the mandatory fields: First Name, Last Name, Email Address, Password, Confirm Password
 //      All the mandatory fields are filled in
-        Pages.createAccountPage.setFirstName(data.getRegistrationData().getFirstName());
-        Pages.createAccountPage.setLastName(data.getRegistrationData().getLastName());
-        Pages.createAccountPage.setEmailAddress();
-        Pages.createAccountPage.setPassword(data.getRegistrationData().getPassword());
-        Pages.createAccountPage.setConfirmPassword(data.getRegistrationData().getConfirmPassword());
+        Pages.createAccountPage
+                .setFirstName(data.getRegistrationData().getFirstName())
+                .setLastName(data.getRegistrationData().getLastName())
+                .setEmailAddress()
+                .setPassword(data.getRegistrationData().getPassword())
+                .setConfirmPassword(data.getRegistrationData().getConfirmPassword());
 //      Step 4 Click on "Register"
 //      A page titled "My dashboard" is present
 //      The following list items are present: Account Information, Address Book, My Orders,
