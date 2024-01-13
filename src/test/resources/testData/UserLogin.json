@@ -1,0 +1,9 @@
+{
+  "loginData": {
+    "firstName": "testName",
+    "lastName": "testSurname",
+    "emailAddress": "testra@example.com",
+    "password": "Start123!",
+    "confirmPassword": "Start123!"
+  }
+}
