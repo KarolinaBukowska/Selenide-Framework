@@ -6,7 +6,7 @@ import utils.TestDataHelper;
 
 import static com.codeborne.selenide.Condition.enabled;
 
-public class CreateAccountPage {
+public class CreateAccountPage {  ///extends Pages ??
     public SelenideElement descriptionTitle = Selenide.$("div.page-title > h1");
     public SelenideElement firstName = Selenide.$("input#firstname.input-text.required-entry");
     public SelenideElement middleName = Selenide.$("input#middlename.input-text");

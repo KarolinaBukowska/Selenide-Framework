@@ -1,0 +1,12 @@
+{
+  "users": {
+    "userOne": {
+      "emailAddress": "testra@example.com",
+      "password": "Start123!"
+    },
+    "userTwo": {
+      "emailAddress": "testra2@example.com",
+      "password": "AnotherPassword123"
+    }
+  }
+}
