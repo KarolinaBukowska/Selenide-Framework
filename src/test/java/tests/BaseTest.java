@@ -14,7 +14,7 @@ import java.util.Map;
 
 public class BaseTest {
 
-    protected Map<String, Users> users;
+    protected Users users;
     protected Data data;
 
     public void setUpUsersData(String relativePath){
@@ -22,7 +22,7 @@ public class BaseTest {
         try {
             String filePath = getPathToResource(relativePath);
             System.out.println("Attempting to load file from path: " + filePath);
-            users = objectMapper.readValue(new File(filePath), new TypeReference<>() {});
+            users = objectMapper.readValue(new File(filePath), Users.class);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import data.UserLoginData;
 import data.Users;
 
 import static com.codeborne.selenide.Condition.enabled;
@@ -25,9 +26,9 @@ public class LoginAndRegistrationPage {
 //        return this;
 //    }
 
-    public LoginAndRegistrationPage login(Users user) {
-        emailField.setValue(user.getEmailAddress());
-        passwordField.setValue(user.getPassword());
+    public LoginAndRegistrationPage login(UserLoginData userData) {
+        emailField.setValue(userData.getEmailAddress());
+        passwordField.setValue(userData.getPassword());
         loginBtn.shouldBe(enabled).click();
         return new LoginAndRegistrationPage();
     }

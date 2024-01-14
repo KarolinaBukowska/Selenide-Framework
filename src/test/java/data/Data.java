@@ -13,7 +13,6 @@ import lombok.Value;
 public class Data {
 
     RegistrationData registrationData;
-    LoginData loginData;
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     @JsonPOJOBuilder(withPrefix = "")

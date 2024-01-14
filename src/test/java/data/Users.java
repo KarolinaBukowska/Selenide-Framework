@@ -11,16 +11,9 @@ import lombok.Value;
 @JsonDeserialize(builder = Users.UsersBuilder.class)
 public class Users {
 
-    String emailAddress;
-    String password;
+    UserLoginData userOne;
+    UserLoginData userTwo;
 
-    public String getEmailAddress() {
-        return emailAddress;
-    }
-
-    public String getPassword() {
-        return password;
-    }
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     @JsonPOJOBuilder(withPrefix = "")

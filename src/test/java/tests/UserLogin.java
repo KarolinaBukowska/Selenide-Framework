@@ -17,7 +17,7 @@ public class UserLogin extends BaseTest {
 
     @BeforeClass
     public void setUp() {
-        setUpUsersData("testData/UsersData.json");
+        setUpUsersData("testData/UserData.json");
     }
 
 
@@ -40,7 +40,7 @@ public class UserLogin extends BaseTest {
         Pages.loginAndRegistrationPage.loginBtn.shouldBe(visible).shouldBe(enabled);
 //      Step 2 Fill in the fields "Email address" and "Password" with the already registered data
 //      All the mandatory fields are filled in
-        Pages.loginAndRegistrationPage.login(users.get("userOne"));
+        Pages.loginAndRegistrationPage.login(users.getUserOne());
 //        Pages.loginAndRegistrationPage
 //                .setEmailField(data.getLoginData().getEmailAddress())
 //                .setPasswordField(data.getLoginData().getPassword());
