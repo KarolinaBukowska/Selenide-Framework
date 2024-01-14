@@ -15,7 +15,7 @@ public class UserRegistration extends BaseTest {
 
     @BeforeClass
     public void setUp() {
-        setUpTestData("testData/UserRegistration.json");
+        setUpTestData(Config.REGISTRATION_DATA);
     }
 
 

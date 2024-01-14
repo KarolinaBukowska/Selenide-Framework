@@ -17,7 +17,7 @@ public class UserLogin extends BaseTest {
 
     @BeforeClass
     public void setUp() {
-        setUpUsersData("testData/UserData.json");
+        setUpUsersData(Config.USERS_DATA);
     }
 
 
