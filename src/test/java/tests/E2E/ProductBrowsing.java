@@ -6,6 +6,7 @@ import config.Config;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.Pages;
+import pages.ProductDetails;
 import tests.BaseTest;
 
 import static com.codeborne.selenide.Condition.*;
@@ -42,11 +43,31 @@ public class ProductBrowsing extends BaseTest {
 //      Verify the user is on the correct page
         Pages.topsBlouses.descriptionTitle.shouldBe(visible).shouldHave(exactText("Tops & Blouses"));
 //      Step 4 Click on a product in the listing
+        Pages.topsBlouses.firstProduct.shouldBe(visible).click();
 //      The product details page is displayed
-//      The product name, price, and other relevant information is visible
-//      Step 5 Add the product to the cart by clicking on the "Add to Cart" button
-//      Step 6 Navigate to the shopping cart
-//      Verify the product is in the cart
+//      The product name, price, and other key elements are visible
+        Pages.productDetails.productName.shouldBe(visible);
+        Pages.productDetails.priceInfo.shouldBe(visible);
+        Pages.productDetails.availabilityInfo.shouldBe(visible);
+        Pages.productDetails.shortProductInfo.shouldBe(visible);
+        Pages.productDetails.colorLabel.shouldBe(visible);
+        Pages.productDetails.colorOptions.shouldBe(visible);
+        Pages.productDetails.sizeLabel.shouldBe(visible);
+        Pages.productDetails.sizeOptions.shouldBe(visible);
+        Pages.productDetails.addToCartBtn.shouldBe(visible).shouldBe(enabled);
+        Pages.productDetails.descriptionSection.shouldBe(visible);
+        Pages.productDetails.additionalInfoSection.shouldBe(visible);
+        Pages.productDetails.reviewsSection.shouldBe(visible);
+//      Step 5 Select color and size
+        Pages.productDetails.selectColor();
+        Pages.productDetails.selectSize();
+//      Step 6 Add the product to the cart by clicking on the "Add to Cart" button
+        Pages.productDetails.addToCartBtn.click();
+        Pages.productDetails.cartBtn.shouldBe(visible).shouldBe(enabled).click();
+//      Step 7 Shopping cart page is present
+//      Verify the product with correct name is in the cart
+        assert Pages.cart.areProductNamesMatching() : "Product names do not match";
+
 
     }
 

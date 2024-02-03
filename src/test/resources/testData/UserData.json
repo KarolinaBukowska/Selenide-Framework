@@ -1,10 +1,13 @@
 {
   "userOne": {
-    "emailAddress": "testra@example.com",
-    "password": "Start123!"
+    "emailAddress": "##spaceForEmailOne##",
+    "password": "##spaceForPasswordOne##"
   },
   "userTwo": {
-    "emailAddress": "testra2@example.com",
-    "password": "AnotherPassword123"
+    "emailAddress": "##spaceForEmailTwo##",
+    "password": "##spaceForPasswordTwo##"
   }
 }
+
+
+

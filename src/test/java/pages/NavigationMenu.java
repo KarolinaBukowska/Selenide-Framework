@@ -6,9 +6,6 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 public class NavigationMenu {
-
-//    private SelenideElement portalPrimaryMenu = $(By.className("nav-primary"));
-//    public SelenideElement womenMenu = portalPrimaryMenu.$x(".//nav[@id='nav']//li[@class='level0 nav-1 first parent']");
     public SelenideElement womenMenu = $x("//nav[@id='nav']//li[@class='level0 nav-1 first parent']");
     public SelenideElement viewAllWomenSubmenu = $x("//li[@class='level0 nav-1 first active parent']//a[text()='View All Women']");
     public SelenideElement WomenNewArrivalsSubmenu = $x("//li[@class='level0 nav-1 first active parent']//li[@class='level1 nav-1-1 first']/a[text()='New Arrivals']");
