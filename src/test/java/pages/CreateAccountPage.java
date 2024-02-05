@@ -17,12 +17,14 @@ public class CreateAccountPage {  ///extends Pages ??
     public SelenideElement registerBtn = Selenide.$x("//button[contains(@class, 'button') and @title='Register']//span//span[contains(text(), 'Register')]");
 
     public CreateAccountPage setFirstName(String firstNameValue) {
-        firstName.shouldBe(enabled).setValue(firstNameValue);
+        firstName.shouldBe(enabled)
+                .setValue(firstNameValue);
         return this;
     }
 
     public CreateAccountPage setLastName(String lastNameValue) {
-        lastName.shouldBe(enabled).setValue(lastNameValue);
+        lastName.shouldBe(enabled)
+                .setValue(lastNameValue);
         return this;
     }
 
@@ -30,17 +32,20 @@ public class CreateAccountPage {  ///extends Pages ??
         String emailPrefix = "test";
         String emailSuffix = "@example.com";
         String randomEmail = TestDataHelper.generateRandomEmail(emailPrefix, emailSuffix);
-        emailAddress.shouldBe(enabled).setValue(randomEmail);
+        emailAddress.shouldBe(enabled)
+                .setValue(randomEmail);
         return this;
     }
 
     public CreateAccountPage setPassword(String passwordValue) {
-        password.shouldBe(enabled).setValue(passwordValue);
+        password.shouldBe(enabled)
+                .setValue(passwordValue);
         return this;
     }
 
     public CreateAccountPage setConfirmPassword(String confirmPasswordValue) {
-        confirmPassword.shouldBe(enabled).setValue(confirmPasswordValue);
+        confirmPassword.shouldBe(enabled)
+                .setValue(confirmPasswordValue);
         return this;
     }
 

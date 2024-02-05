@@ -12,12 +12,10 @@ import pages.Pages;
 
 public class UserRegistration extends BaseTest {
 
-
     @BeforeClass
     public void setUp() {
         setUpTestData(Config.REGISTRATION_DATA);
     }
-
 
     @Test
     public void openUserRegistration() {
@@ -27,8 +25,6 @@ public class UserRegistration extends BaseTest {
         Selenide.open(Config.BASE_URL);
         String url = WebDriverRunner.url();
         assertEquals(url, Config.BASE_URL);
-
-
 
 //      Step 1 Click on the "My account" button
 //      A page titled "Login or Create an Account" is present
@@ -70,7 +66,5 @@ public class UserRegistration extends BaseTest {
         Pages.accountDashboard.billingAgreements.shouldBe(visible).shouldBe(enabled);
         Pages.accountDashboard.myProductReviews.shouldBe(visible).shouldBe(enabled);
         Pages.accountDashboard.myApplications.shouldBe(visible).shouldBe(enabled);
-
     }
-
 }
