@@ -29,6 +29,9 @@ public class ProductDetails {
     public SelenideElement additionalInfoSection = Selenide.$(".toggle-tabs  li:nth-child(2)");
     public SelenideElement reviewsSection = Selenide.$(".toggle-tabs .last");
     public SelenideElement cartBtn = Selenide.$(".header-minicart .skip-link");
+    public SelenideElement productDetailsContainer = Selenide.$(".product-details");
+    public SelenideElement minicartBtn = Selenide.$(".header-minicart a");
+    public SelenideElement viewCartBtn = Selenide.$(".minicart-actions .cart-link");
 
     public ProductDetails selectColor(){
 
@@ -71,23 +74,8 @@ public class ProductDetails {
         return this;
     }
 
-    public String getProductName(){
-        return productName.getText();
+    public String getProductUniqueId() {
+        return productDetailsContainer.find("input.qty").getAttribute("id");
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

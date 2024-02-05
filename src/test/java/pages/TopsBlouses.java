@@ -10,5 +10,4 @@ public class TopsBlouses {
     public SelenideElement thirdProduct = Selenide.$(".category-products .products-grid li:nth-child(3) a[title=\"View Details\"]");
     public SelenideElement fourthProduct = Selenide.$(".category-products .products-grid li:nth-child(4) a[title=\"View Details\"]");
 
-
 }

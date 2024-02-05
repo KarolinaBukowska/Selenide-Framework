@@ -3,22 +3,13 @@ package pages;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 
-import java.util.Objects;
-
 public class Cart {
 
-    public SelenideElement productNameInCart = Selenide.$("h2.product-name a");
+    public SelenideElement productInCartContainer = Selenide.$(".product-details");
+    public SelenideElement pageTitle = Selenide.$("h1");
+    public SelenideElement removeItemBtn = Selenide.$(".a-center.product-cart-remove.last a");
 
-    public String getProductNameInCart(){
-        return productNameInCart.getText();
+    public String getProductInCartUniqueId() {
+        return productInCartContainer.find("input.qty").getAttribute("id");
     }
-
-    public boolean areProductNamesMatching(){
-        String productNameFromDetailsPage = Pages.productDetails.getProductName();
-        String productNameInCart = Pages.cart.getProductNameInCart();
-
-        return Objects.equals(productNameFromDetailsPage, productNameInCart);
-    }
-
-
 }

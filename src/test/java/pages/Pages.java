@@ -10,6 +10,4 @@ public class Pages {
     public static TopsBlouses topsBlouses = new TopsBlouses();
     public static ProductDetails productDetails = new ProductDetails();
     public static Cart cart = new Cart();
-
-
 }

@@ -6,13 +6,15 @@ import config.Config;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.Pages;
-import pages.ProductDetails;
 import tests.BaseTest;
 
+import java.util.Objects;
+
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.testng.Assert.assertEquals;
 
-public class ProductBrowsing extends BaseTest {
+public class AddingProductToCartAndDeletion extends BaseTest {
 
     @BeforeClass
     public void setUp() {
@@ -31,8 +33,8 @@ public class ProductBrowsing extends BaseTest {
 
 //      Step 1 Navigate to the Account and select Log In from the dropdown/submenu
 //      A page titled "Login or Create an Account" is present
-        Pages.homePage.accountBtn.shouldBe(enabled).click();
-        Pages.homePage.logInBtn.shouldBe(enabled).click();
+        Pages.homePage.accountBtn.shouldBe(visible).shouldBe(enabled).click();
+        Pages.homePage.logInBtn.shouldBe(visible).shouldBe(enabled).click();
         Pages.loginAndRegistrationPage.descriptionTitle.shouldHave(exactText("Login or Create an Account"));
 //      Step 2 Log in with the registered user's credentials
 //      A page titled "My dashboard" is present
@@ -64,11 +66,24 @@ public class ProductBrowsing extends BaseTest {
 //      Step 6 Add the product to the cart by clicking on the "Add to Cart" button
         Pages.productDetails.addToCartBtn.click();
         Pages.productDetails.cartBtn.shouldBe(visible).shouldBe(enabled).click();
-//      Step 7 Shopping cart page is present
-//      Verify the product with correct name is in the cart
-        assert Pages.cart.areProductNamesMatching() : "Product names do not match";
-
-
+//      Step 7 Shopping cart page is present (HOW TO DO IT)
+//      Verify the id of the product in the cart
+        String cartProductUniqueId = Pages.cart.getProductInCartUniqueId();
+//      Step 8 Go back to the Product details page
+//      Verify whether the selected product has the same id
+        getWebDriver().navigate().back();
+        String productUniqueIdFromDetailsPage = Pages.productDetails.getProductUniqueId();
+        assert Objects.equals(productUniqueIdFromDetailsPage, cartProductUniqueId) : "Product IDs do not match";
+//      Step 9 Click on the Cart button in the navigation menu
+//      The Cart page is present
+        Pages.productDetails.minicartBtn.shouldBe(visible).shouldBe(enabled).click();
+        Pages.productDetails.viewCartBtn.shouldBe(visible).shouldBe(enabled).click();
+        Pages.cart.pageTitle.shouldBe(visible).shouldHave(exactText("Shopping Cart"));
+//      Step 10 Delete the product in the cart
+//      The product is deleted
+        Pages.cart.removeItemBtn.shouldBe(visible).shouldBe(enabled).click();
+        Pages.cart.productInCartContainer
+                .find("input.qty[id='S" + productUniqueIdFromDetailsPage + "']")
+                .shouldNotBe(visible);
     }
-
 }

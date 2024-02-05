@@ -13,13 +13,10 @@ import static org.testng.Assert.assertEquals;
 
 public class UserLogin extends BaseTest {
 
-
-
     @BeforeClass
     public void setUp() {
         setUpUsersData(Config.USERS_DATA);
     }
-
 
     @Test
     public void openUserLogin() {
@@ -38,10 +35,9 @@ public class UserLogin extends BaseTest {
         Pages.loginAndRegistrationPage.descriptionTitle.shouldHave(exactText("Login or Create an Account"));
         Pages.loginAndRegistrationPage.createAccountBtn.shouldBe(visible).shouldBe(enabled);
         Pages.loginAndRegistrationPage.loginBtn.shouldBe(visible).shouldBe(enabled);
-//      Step 2 Log in with the registered user's credentials //Consider data validation in this step, are the fields filled in, what is the placeholder
-//      All the mandatory fields are filled in
+//      Step 2 Log in with the registered user's credentials
+//      All the login mandatory fields are filled in
         Pages.loginAndRegistrationPage.login(users.getUserOne());
-//      Step 3 Click on the Login button //This step shouldnt use login button as it was executed with the login method
 //      A page titled "My dashboard" is present
 //      The following list items are present: Account Information, Address Book, My Orders,
 //      Billing Agreements, My Product Reviews, My Applications
@@ -52,7 +48,5 @@ public class UserLogin extends BaseTest {
         Pages.accountDashboard.billingAgreements.shouldBe(visible).shouldBe(enabled);
         Pages.accountDashboard.myProductReviews.shouldBe(visible).shouldBe(enabled);
         Pages.accountDashboard.myApplications.shouldBe(visible).shouldBe(enabled);
-
     }
-
 }
