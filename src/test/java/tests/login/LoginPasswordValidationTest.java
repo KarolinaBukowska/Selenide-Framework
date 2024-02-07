@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Condition.enabled;
 import static org.testng.Assert.assertEquals;
 
-public class LoginPasswordValidation extends BaseTest {
+public class LoginPasswordValidationTest extends BaseTest {
 
     @BeforeClass
     public void setUp() {

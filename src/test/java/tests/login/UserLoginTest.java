@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Condition.*;
 import static org.testng.Assert.assertEquals;
 
 
-public class UserLogin extends BaseTest {
+public class UserLoginTest extends BaseTest {
 
     @BeforeClass
     public void setUp() {

@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.testng.Assert.assertEquals;
 
-public class AddingProductToCartAndDeletion extends BaseTest {
+public class AddingProductToCartAndDeletionTest extends BaseTest {
 
     @BeforeClass
     public void setUp() {
