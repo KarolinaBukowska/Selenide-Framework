@@ -19,6 +19,7 @@ public class CreateAccountPage {  ///extends Pages ??
     public SelenideElement mismatchedPasswordErrorMsg = Selenide.$("#advice-validate-cpassword-confirmation");
     public SelenideElement tooShortPasswordErrorMsg = Selenide.$("#advice-validate-password-password");
     public SelenideElement requiredPasswordErrorMsg = Selenide.$("#advice-required-entry-confirmation");
+    public SelenideElement requiredEmailErrorMsg = Selenide.$("#advice-required-entry-email_address");
 
 
     public CreateAccountPage setFirstName(String firstNameValue) {
