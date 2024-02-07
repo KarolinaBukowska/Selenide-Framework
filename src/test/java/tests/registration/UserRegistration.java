@@ -1,4 +1,4 @@
-package tests;
+package tests.registration;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import static com.codeborne.selenide.Condition.*;
 import static org.testng.Assert.*;
 import pages.Pages;
+import tests.BaseTest;
 
 
 public class UserRegistration extends BaseTest {
