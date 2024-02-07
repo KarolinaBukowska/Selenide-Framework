@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Condition.enabled;
 import static org.testng.Assert.assertEquals;
 
-public class LoginEmailValidation extends BaseTest {
+public class LoginPasswordValidation extends BaseTest {
 
     @BeforeClass
     public void setUp() {
@@ -20,7 +20,7 @@ public class LoginEmailValidation extends BaseTest {
     }
 
     @Test
-    public void loginWithUnregisteredUsername(){
+    public void loginWithUnregisteredPassword(){
 
 //      Preconditions:
 //      Home page is present
@@ -35,23 +35,20 @@ public class LoginEmailValidation extends BaseTest {
         Pages.loginAndRegistrationPage.descriptionTitle.shouldHave(exactText("Login or Create an Account"));
         Pages.loginAndRegistrationPage.createAccountBtn.shouldBe(visible).shouldBe(enabled);
         Pages.loginAndRegistrationPage.loginBtn.shouldBe(visible).shouldBe(enabled);
-//      Step 2 Enter the user's credentials that contain unregistered email and registered password
+//      Step 2 Enter the user's credentials that contain registered email and unregistered password
 //      The error message pops up
-        Pages.loginAndRegistrationPage.login(users.getUserWithInvalidEmail());
+        Pages.loginAndRegistrationPage.login(users.getUserWithInvalidPassword());
         Pages.loginAndRegistrationPage.invalidLoginMessage.shouldBe(visible).shouldHave(exactText("Invalid login or password."));
-//      Step 3 Clear the EMAIL field, leaving the password field populated with the registered password
-        Pages.loginAndRegistrationPage.emailField.clear();
-        Pages.loginAndRegistrationPage.emailField.shouldBe(empty);
+//      Step 3 Clear the PASSWORD field, leaving the email field populated with the registered email
+        Pages.loginAndRegistrationPage.passwordField.clear();
+        Pages.loginAndRegistrationPage.passwordField.shouldBe(empty);
 //      Step 4 Click on the Login button
 //      Both Email Address and Password fields get cleared out
 //      The error message pops up: "Invalid login or password."
-//      The message pops up under both Email Address and Password fields:"This is a required field."
+//      The message pops up under Password field:"This is a required field."
         Pages.loginAndRegistrationPage.loginBtn.shouldBe(visible).shouldBe(enabled).click();
-        Pages.loginAndRegistrationPage.emailField.shouldBe(empty);
         Pages.loginAndRegistrationPage.passwordField.shouldBe(empty);
         Pages.loginAndRegistrationPage.invalidLoginMessage.shouldBe(visible).shouldHave(exactText("Invalid login or password."));
-        Pages.loginAndRegistrationPage.missingLoginEmail.shouldBe(visible).shouldHave(exactText("This is a required field."));
         Pages.loginAndRegistrationPage.missingLoginPassword.shouldBe(visible).shouldHave(exactText("This is a required field."));
     }
-
 }
