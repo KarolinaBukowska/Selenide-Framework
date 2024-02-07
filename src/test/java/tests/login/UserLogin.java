@@ -1,4 +1,4 @@
-package tests;
+package tests.login;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
@@ -6,6 +6,7 @@ import config.Config;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.Pages;
+import tests.BaseTest;
 
 import static com.codeborne.selenide.Condition.*;
 import static org.testng.Assert.assertEquals;

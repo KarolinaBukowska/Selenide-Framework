@@ -12,7 +12,8 @@ import lombok.Value;
 public class Users {
 
     UserLoginData userOne;
-    UserLoginData userTwo;
+    UserLoginData userWithInvalidEmail;
+    UserLoginData userWithInvalidPassword;
 
 
     @JsonIgnoreProperties(ignoreUnknown = true)

@@ -13,6 +13,10 @@ public class LoginAndRegistrationPage {
     public SelenideElement loginBtn = Selenide.$x("//button[contains(@class, 'button') and @title='Login']//span//span[contains(text(), 'Login')]");
     public SelenideElement emailField = Selenide.$("input#email.input-text.required-entry");
     public  SelenideElement passwordField = Selenide.$("input#pass.input-text.required-entry");
+    public SelenideElement invalidLoginMessage = Selenide.$(".error-msg span");
+    public SelenideElement missingLoginEmail = Selenide.$("#advice-required-entry-email");
+    public SelenideElement missingLoginPassword = Selenide.$("#advice-required-entry-pass");
+
 
     public LoginAndRegistrationPage login(UserLoginData userData) {
         emailField.setValue(userData.getEmailAddress());

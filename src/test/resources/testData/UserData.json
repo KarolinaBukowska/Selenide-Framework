@@ -1,11 +1,15 @@
 {
   "userOne": {
-    "emailAddress": "##spaceForEmailOne##",
+    "emailAddress": "##spaceForRegisteredEmail##",
     "password": "##spaceForPasswordOne##"
   },
-  "userTwo": {
-    "emailAddress": "##spaceForEmailTwo##",
-    "password": "##spaceForPasswordTwo##"
+  "userWithInvalidEmail": {
+    "emailAddress": "##spaceForUnregisteredEmail##",
+    "password": "##spaceForRegisteredPassword##"
+  },
+  "userWithInvalidPassword": {
+    "emailAddress": "##spaceForRegisteredEmail##",
+    "password": "##spaceForUnregisteredPassword##"
   }
 }
 
