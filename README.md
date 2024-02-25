@@ -68,7 +68,7 @@ Follow these steps:
  
 Now you're ready to run the automated tests using your own demo user credentials
 
-### Note on a Chromedrive
+### Note on Chromedriver
 
 Selenide is built on top of Selenium WebDriver and provides additional functionality and a more user-friendly API for writing tests 
 Selenide handles the WebDriver management internally and typically downloads the appropriate WebDriver binaries automatically based on the browser you are using
