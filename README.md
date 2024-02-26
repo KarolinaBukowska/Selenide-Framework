@@ -64,13 +64,13 @@ Follow these steps:
 **2. Replace Placeholders in the JSON files:**
   * Go to the resource and then testData package
   * Select the UserData.json file
-  * Replace these placeholders with your user's registered email address and password
+  * Replace the placeholders with your user's registered email address and password
  
 Now you're ready to run the automated tests using your own demo user credentials
 
 ### Note on Chromedriver
 
-Selenide is built on top of Selenium WebDriver and provides additional functionality and a more user-friendly API for writing tests 
+Selenide is built on top of Selenium WebDriver and provides additional functionality and a more user-friendly API for writing tests. 
 Selenide handles the WebDriver management internally and typically downloads the appropriate WebDriver binaries automatically based on the browser you are using
 
 However, sometimes Selenide may not be able to automatically download the WebDriver binaries, especially if you're using a less common browser or a specific version.
